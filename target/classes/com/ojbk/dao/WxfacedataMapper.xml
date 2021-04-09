@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ojbk.dao.WxfacedataMapper">
+  <resultMap id="BaseResultMap" type="com.ojbk.vo.Wxfacedata">
+    <!--@mbg.generated-->
+    <!--@Table wxfacedata-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="faceName" jdbcType="VARCHAR" property="facename" />
+    <result column="faceAge" jdbcType="VARCHAR" property="faceage" />
+    <result column="faceSex" jdbcType="VARCHAR" property="facesex" />
+    <result column="fileDownloadUri" jdbcType="VARCHAR" property="filedownloaduri" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, faceName, faceAge, faceSex, fileDownloadUri, openid, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wxfacedata
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="findByopenid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from wxfacedata
+    where openid = #{openid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from wxfacedata
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ojbk.vo.Wxfacedata" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wxfacedata (faceName, faceAge, faceSex, 
+      fileDownloadUri, openid, create_time, 
+      update_time)
+    values (#{facename,jdbcType=VARCHAR}, #{faceage,jdbcType=VARCHAR}, #{facesex,jdbcType=VARCHAR}, 
+      #{filedownloaduri,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ojbk.vo.Wxfacedata" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wxfacedata
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="facename != null">
+        faceName,
+      </if>
+      <if test="faceage != null">
+        faceAge,
+      </if>
+      <if test="facesex != null">
+        faceSex,
+      </if>
+      <if test="filedownloaduri != null">
+        fileDownloadUri,
+      </if>
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="facename != null">
+        #{facename,jdbcType=VARCHAR},
+      </if>
+      <if test="faceage != null">
+        #{faceage,jdbcType=VARCHAR},
+      </if>
+      <if test="facesex != null">
+        #{facesex,jdbcType=VARCHAR},
+      </if>
+      <if test="filedownloaduri != null">
+        #{filedownloaduri,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ojbk.vo.Wxfacedata">
+    <!--@mbg.generated-->
+    update wxfacedata
+    <set>
+      <if test="facename != null">
+        faceName = #{facename,jdbcType=VARCHAR},
+      </if>
+      <if test="faceage != null">
+        faceAge = #{faceage,jdbcType=VARCHAR},
+      </if>
+      <if test="facesex != null">
+        faceSex = #{facesex,jdbcType=VARCHAR},
+      </if>
+      <if test="filedownloaduri != null">
+        fileDownloadUri = #{filedownloaduri,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ojbk.vo.Wxfacedata">
+    <!--@mbg.generated-->
+    update wxfacedata
+    set faceName = #{facename,jdbcType=VARCHAR},
+      faceAge = #{faceage,jdbcType=VARCHAR},
+      faceSex = #{facesex,jdbcType=VARCHAR},
+      fileDownloadUri = #{filedownloaduri,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
